@@ -15,6 +15,9 @@ class TestCoffeeShop(unittest.TestCase):
     def test_till_has_money(self):
         self.assertEqual( 500, self.coffee_shop.till)
 
+    def test_drinks_list(self):
+        self.assertEqual(1, self.coffeeshop.drinks_list())
+
     # def test_sell_drink_to_customer(self):
     #     drink1 = Drink("Hot Chocolate", 4.00)
     #     customer1 = Customer("Hanna", 300)
@@ -24,6 +27,7 @@ class TestCoffeeShop(unittest.TestCase):
 
     #     #checking if customer wallet has been reduced
     #     #checking if till has been increased
+    
 
     def test_reduce_cash(self):
         self.customer.reduce_cash(4)
@@ -32,6 +36,11 @@ class TestCoffeeShop(unittest.TestCase):
     def test_increase_cash_in_till(self):
         self.coffee_shop.increase_cash_in_till(4)
         self.assertEqual(504, self.coffee_shop.till)
+
+    def test_sell_drink(self):
+        self.coffeeshop.sell_drink(self.Hanna, self.HotChocolate)
+        self.assertEqual(296, self.Hanna.wallet)
+        self.assertEqual(504, self.coffeeshop.till)
 
     # def check_age_before_serving(self, age):
     #     self.coffee_shop.check_age(age >16)
